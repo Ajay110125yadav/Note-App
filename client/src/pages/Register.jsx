@@ -23,15 +23,15 @@ export default function Register() {
     try {
       const res = await fetch("http://localhost:5000/api/auth/register", {
         method: "POST",
-        headers: { "Content-Type": "application/json" }, // ✅ fixed
-        body: JSON.stringify(form), // ✅ send form data
+        headers: { "Content-Type": "application/json" }, 
+        body: JSON.stringify(form), // 
       });
 
       const data = await res.json();
 
       if (!res.ok) {
         if (data.errors) {
-          setErrors(data.errors); // ✅ show server errors if array
+          setErrors(data.errors); 
         } else {
           setErrors([{ msg: data.message || "Registration failed" }]);
         }
@@ -69,7 +69,7 @@ export default function Register() {
         <div style={{ color: "green", marginBottom: 12 }}>{message}</div>
       )}
 
-      {errors.length > 0 && ( // ✅ fixed typo
+      {errors.length > 0 && ( 
         <div style={{ color: "red", marginBottom: 12 }}>
           {errors.map((e, i) => (
             <div key={i}>{e.msg}</div>
@@ -94,9 +94,9 @@ export default function Register() {
           Email
           <input
             name="email"
-            type="email" // ✅ fixed
+            type="email" // 
             value={form.email}
-            onChange={onChange} // ✅ fixed
+            onChange={onChange} // 
             placeholder="you@gmail.com"
             required
             style={{ width: "100%", padding: 8, marginTop: 6 }}
